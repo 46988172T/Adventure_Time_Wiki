@@ -1,0 +1,13 @@
+{
+  "syntaxVersion": 3,
+  "projectPackageId": "com.goleogo.adventuretimewiki",
+  "authority": "com.goleogo.adventuretimewiki.provider",
+  "providerJavaPackage": "com.goleogo.adventuretimewiki.provider",
+  "providerClassName": "AdvTimeProvider",
+  "sqliteOpenHelperClassName": "AdvTimeSQLiteOpenHelper",
+  "sqliteOpenHelperCallbacksClassName": "AdvTimeSQLiteOpenHelperCallbacks",
+  "databaseFileName": "advtimewiki.db",
+  "databaseVersion": 1,
+  "enableForeignKeys": true,
+  "useAnnotations": true
+}

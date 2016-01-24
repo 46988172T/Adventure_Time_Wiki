@@ -1,0 +1,10 @@
+{
+  "documentation": "A human being which is part of a team.",
+  "fields": [
+    {
+      "documentation": "Episode title",
+      "name": "title",
+      "type": "String"
+    }
+  ]
+}

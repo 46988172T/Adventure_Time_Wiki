@@ -1,0 +1,22 @@
+{
+  "documentation": "A human being which is part of a team.",
+  "fields": [
+    {
+      "documentation": "Full name",
+      "name": "full_name",
+      "type": "String"
+    },
+    {
+      "documentation": "Sex",
+      "name": "sex",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "documentation": "Image",
+      "name": "image",
+      "type": "String",
+      "nullable": true
+    }
+  ]
+}
