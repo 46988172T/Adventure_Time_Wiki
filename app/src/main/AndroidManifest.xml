@@ -30,6 +30,16 @@
                 android:value="com.goleogo.adventuretimewiki.MainActivity" />
         </activity>
 
+        <activity
+            android:name=".EpisodesActivity"
+            android:label="@string/episodes"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.goleogo.adventuretimewiki.MainActivity" />
+        </activity>
+
         <provider
             android:name="com.goleogo.adventuretimewiki.provider.AdvTimeProvider"
             android:authorities="com.goleogo.adventuretimewiki.provider"

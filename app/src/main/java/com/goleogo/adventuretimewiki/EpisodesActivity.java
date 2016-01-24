@@ -1,11 +1,9 @@
 package com.goleogo.adventuretimewiki;
 
 import android.content.CursorLoader;
-
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
-
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,34 +11,34 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.goleogo.adventuretimewiki.provider.characters.CharactersColumns;
+import com.goleogo.adventuretimewiki.provider.episodes.EpisodesColumns;
 
 /**
- * Created by leosss on 20/01/16.
+ * Created by leosss on 24/01/16.
  */
-public class CharactersActivity  extends AppCompatActivity implements android.app.LoaderManager.LoaderCallbacks<Cursor>{
+public class EpisodesActivity  extends AppCompatActivity implements android.app.LoaderManager.LoaderCallbacks<Cursor> {
 
-    AdapterCharacter adapterCharacter;
-    GridView gridview;
+    AdapterEpisodes adapterEpisodes;
+    GridView gridviewEpisodes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.character_activity);
-        gridview = (GridView)findViewById(R.id.gridView);
+        setContentView(R.layout.episode_activity);
+        gridviewEpisodes = (GridView) findViewById(R.id.gridViewEpisode);
 
-        getLoaderManager().initLoader(0, null,(android.app.LoaderManager.LoaderCallbacks<Cursor>)this);
+        getLoaderManager().initLoader(0, null, (android.app.LoaderManager.LoaderCallbacks<Cursor>) this);
 
-        adapterCharacter = new AdapterCharacter(this,
-                R.layout.item_character,
+        adapterEpisodes = new AdapterEpisodes(this,
+                R.layout.item_episode,
                 null,
-                new String[]{   },
-                new int[]{  },
+                new String[]{},
+                new int[]{},
                 0);
 
-        gridview.setAdapter(adapterCharacter);
+        gridviewEpisodes.setAdapter(adapterEpisodes);
 
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gridviewEpisodes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -75,7 +73,7 @@ public class CharactersActivity  extends AppCompatActivity implements android.ap
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new CursorLoader(this,
-                CharactersColumns.CONTENT_URI,
+                EpisodesColumns.CONTENT_URI,
                 null,
                 null,
                 null,
@@ -84,13 +82,12 @@ public class CharactersActivity  extends AppCompatActivity implements android.ap
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        adapterCharacter.swapCursor(data);
+        adapterEpisodes.swapCursor(data);
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        adapterCharacter.swapCursor(null);
+        adapterEpisodes.swapCursor(null);
     }
-
 
 }

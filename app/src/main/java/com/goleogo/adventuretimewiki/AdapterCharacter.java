@@ -6,28 +6,23 @@ import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-
 import android.widget.ImageView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import com.goleogo.adventuretimewiki.JSON.Character;
 import com.goleogo.adventuretimewiki.provider.characters.CharactersCursor;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 
 /**
  * Created by leosss on 20/01/16.
  */
-public class Adapter extends SimpleCursorAdapter{
+public class AdapterCharacter extends SimpleCursorAdapter{
     TextView name;
     ImageView image;
-
+    TextView sex;
     Context context;
 
-    public Adapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
+    public AdapterCharacter(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
         super(context, layout, c, from, to, flags);
         this.context=context;
     }
@@ -50,11 +45,15 @@ public class Adapter extends SimpleCursorAdapter{
         System.out.println("------------------>>> "+charactersCursor.getFullName());
 
         name.setText(charactersCursor.getFullName());
-        Picasso.with(context)
-                .load(charactersCursor.getImage())
-                .fit()
-                .into(image);
 
+        if(charactersCursor.getImage() == null || charactersCursor.getImage() == ""){
+            //pendiente imagen 'no image'
+        }else {
+            Picasso.with(context)
+                    .load(charactersCursor.getImage())
+                    .fit()
+                    .into(image);
+        }
         return convertView;
 
     }

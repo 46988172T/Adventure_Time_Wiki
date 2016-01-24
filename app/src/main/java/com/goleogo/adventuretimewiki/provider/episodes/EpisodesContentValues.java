@@ -1,11 +1,8 @@
 package com.goleogo.adventuretimewiki.provider.episodes;
 
-import java.util.Date;
-
-import android.content.Context;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.goleogo.adventuretimewiki.provider.base.AbstractContentValues;
@@ -49,6 +46,43 @@ public class EpisodesContentValues extends AbstractContentValues {
 
     public EpisodesContentValues putTitleNull() {
         mContentValues.putNull(EpisodesColumns.TITLE);
+        return this;
+    }
+
+    /**
+     * Episode description
+     */
+    public EpisodesContentValues putDescription(@Nullable String value) {
+        mContentValues.put(EpisodesColumns.DESCRIPTION, value);
+        return this;
+    }
+
+    public EpisodesContentValues putDescriptionNull() {
+        mContentValues.putNull(EpisodesColumns.DESCRIPTION);
+        return this;
+    }
+    /**
+     * Episode air_date
+     */
+    public EpisodesContentValues putAirDate(@Nullable String value) {
+        mContentValues.put(EpisodesColumns.AIR_DATE, value);
+        return this;
+    }
+
+    public EpisodesContentValues putAirDateNull() {
+        mContentValues.putNull(EpisodesColumns.AIR_DATE);
+        return this;
+    }
+    /**
+     * Episode title_card
+     */
+    public EpisodesContentValues putTitleCard(@Nullable String value) {
+        mContentValues.put(EpisodesColumns.TITLE_CARD, value);
+        return this;
+    }
+
+    public EpisodesContentValues putTitleCardNull() {
+        mContentValues.putNull(EpisodesColumns.TITLE_CARD);
         return this;
     }
 }

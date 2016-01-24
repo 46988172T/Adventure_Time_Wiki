@@ -4,11 +4,9 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 import com.goleogo.adventuretimewiki.provider.AdvTimeProvider;
-import com.goleogo.adventuretimewiki.provider.characters.CharactersColumns;
-import com.goleogo.adventuretimewiki.provider.episodes.EpisodesColumns;
 
 /**
- * A human being which is part of a team.
+ * Characters.
  */
 public class CharactersColumns implements BaseColumns {
     public static final String TABLE_NAME = "characters";

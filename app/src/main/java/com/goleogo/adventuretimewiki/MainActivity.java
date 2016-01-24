@@ -1,7 +1,10 @@
 package com.goleogo.adventuretimewiki;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -17,12 +20,28 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean boot = sharedPreferences.getBoolean(getString(R.string.boot), true);
+
+        if (boot) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("", false);
+            editor.apply();
+
+            RefreshBackground getTask = new RefreshBackground();
+            getTask.execute();
+
+
+        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +107,9 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_gallery) {
 
+            Intent i = new Intent(this,EpisodesActivity.class);
+            startActivity(i);
+
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
@@ -106,11 +128,20 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        callCharacters();
+
     }
 
-    public void callCharacters(){
-        ApiAdvTimeClass apiCharacter = new ApiAdvTimeClass();
-        apiCharacter.getCharacters(this);
+
+    class RefreshBackground extends AsyncTask {
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            ApiAdvTimeClass api = new ApiAdvTimeClass();
+            api.getCharacters(getBaseContext());
+            api.getEpisodes(getBaseContext());
+
+            return null;
+        }
     }
 }

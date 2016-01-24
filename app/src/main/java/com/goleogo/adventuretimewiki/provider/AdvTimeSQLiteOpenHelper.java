@@ -16,7 +16,7 @@ import com.goleogo.adventuretimewiki.provider.episodes.EpisodesColumns;
 public class AdvTimeSQLiteOpenHelper extends SQLiteOpenHelper {
     private static final String TAG = AdvTimeSQLiteOpenHelper.class.getSimpleName();
 
-    public static final String DATABASE_FILE_NAME = "advtimewiki.db";
+    public static final String DATABASE_FILE_NAME = "advtimewiki2.db";
     private static final int DATABASE_VERSION = 1;
     private static AdvTimeSQLiteOpenHelper sInstance;
     private final Context mContext;
@@ -34,7 +34,10 @@ public class AdvTimeSQLiteOpenHelper extends SQLiteOpenHelper {
     public static final String SQL_CREATE_TABLE_EPISODES = "CREATE TABLE IF NOT EXISTS "
             + EpisodesColumns.TABLE_NAME + " ( "
             + EpisodesColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + EpisodesColumns.TITLE + " TEXT "
+            + EpisodesColumns.TITLE_CARD + " TEXT, "
+            + EpisodesColumns.DESCRIPTION + " TEXT, "
+            + EpisodesColumns.TITLE + " TEXT, "
+            + EpisodesColumns.AIR_DATE + " TEXT "
             + " );";
 
     // @formatter:on

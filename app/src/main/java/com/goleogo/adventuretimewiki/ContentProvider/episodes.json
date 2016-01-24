@@ -1,9 +1,25 @@
 {
-  "documentation": "A human being which is part of a team.",
+  "documentation": "Episodes",
   "fields": [
+    {
+      "documentation": "Episode card image",
+      "name": "title_card",
+      "type": "String",
+      "nullable": true
+    },
+    {
+      "documentation": "Episode description",
+      "name": "description",
+      "type": "String"
+    },
     {
       "documentation": "Episode title",
       "name": "title",
+      "type": "String"
+    },
+    {
+      "documentation": "Episode air date",
+      "name": "air_date",
       "type": "String"
     }
   ]

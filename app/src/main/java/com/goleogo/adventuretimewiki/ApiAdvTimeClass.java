@@ -7,6 +7,8 @@ import com.goleogo.adventuretimewiki.JSON.*;
 import com.goleogo.adventuretimewiki.JSON.Character;
 import com.goleogo.adventuretimewiki.provider.characters.CharactersColumns;
 import com.goleogo.adventuretimewiki.provider.characters.CharactersContentValues;
+import com.goleogo.adventuretimewiki.provider.episodes.EpisodesColumns;
+import com.goleogo.adventuretimewiki.provider.episodes.EpisodesContentValues;
 
 import java.util.Arrays;
 import retrofit.Call;
@@ -36,7 +38,7 @@ public class ApiAdvTimeClass{
 
     public void getCharacters(final Context context) {
 
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < 6; i++) {
             Call<Character> call = apiService.characters(String.valueOf(i));
             call.enqueue(new Callback<Character>() {
                 @Override
@@ -51,6 +53,38 @@ public class ApiAdvTimeClass{
                         System.out.println("-----------------------------------------" + character.getFullName());
                         charactersContentValues.putImage(character.getImage());
                         context.getContentResolver().insert(CharactersColumns.CONTENT_URI, charactersContentValues.values());
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Throwable t) {
+                    Log.w(null, Arrays.toString(t.getStackTrace()));
+                    System.out.println("ERROR AL DESCARGAR INFO");
+                }
+            });
+        }
+    }
+
+    public void getEpisodes(final Context context) {
+
+        for (int i = 1; i < 4; i++) {
+            Call<Episode> call = apiService.episodes(String.valueOf(i));
+            call.enqueue(new Callback<Episode>() {
+                @Override
+                public void onResponse(final Response<Episode> response, Retrofit retrofit) {
+
+                    if (response.isSuccess()) {
+                        Episode episode = response.body();
+
+                        EpisodesContentValues episodesContentValues = new EpisodesContentValues();
+                        episodesContentValues.putTitleCard(episode.getTitleCard());
+                        episodesContentValues.putDescription(episode.getDescription());
+                        episodesContentValues.putTitle(episode.getTitle());
+                        episodesContentValues.putAirDate(episode.getAirDate());
+                        System.out.println("-----------------------------------------" + episode.getTitle());
+
+                        context.getContentResolver().insert(EpisodesColumns.CONTENT_URI, episodesContentValues.values());
                     }
 
                 }
