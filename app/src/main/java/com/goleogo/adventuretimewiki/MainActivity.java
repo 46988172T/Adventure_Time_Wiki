@@ -1,5 +1,6 @@
 package com.goleogo.adventuretimewiki;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -81,7 +82,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+
+            Intent i = new Intent(this,CharactersActivity.class);
+            startActivity(i);
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -97,5 +101,16 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        callCharacters();
+    }
+
+    public void callCharacters(){
+        ApiAdvTimeClass apiCharacter = new ApiAdvTimeClass();
+        apiCharacter.getCharacters(this);
     }
 }

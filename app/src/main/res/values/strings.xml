@@ -5,8 +5,13 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="characters">Characters</string>
 
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="welcome">WELCOME TO</string>
+
+    <string name="instructions">Some instructions of use:</string>
+    <string name="instructions2">Look for all the characters in the TV series. To do this, you must use the side menu that opens when you press the button top left. In addition, you will also find details of the episodes and some videos of the series. You will need internet access on your device for new updates, while the data is downloaded and saved to view the information later without internet access.</string>
+    <string name="instructions3">We hope you find it useful! Enjoy!</string>
 </resources>

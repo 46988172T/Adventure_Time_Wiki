@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.goleogo.adventuretimewiki">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/advtimelogo"
@@ -20,6 +20,21 @@
         </activity>
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".CharactersActivity"
+            android:label="@string/characters"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.goleogo.adventuretimewiki.MainActivity" />
+        </activity>
+
+        <provider
+            android:name="com.goleogo.adventuretimewiki.provider.AdvTimeProvider"
+            android:authorities="com.goleogo.adventuretimewiki.provider"
+            android:exported="false" />
+
     </application>
 
 </manifest>
