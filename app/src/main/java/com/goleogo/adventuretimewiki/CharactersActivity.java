@@ -1,11 +1,10 @@
 package com.goleogo.adventuretimewiki;
 
 import android.content.CursorLoader;
-
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
-
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,7 +42,9 @@ public class CharactersActivity  extends AppCompatActivity implements android.ap
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent i = new Intent(getBaseContext(), CharacterDetail.class);
+                i.putExtra("character_id", id);
+                startActivity(i);
             }
         });
 

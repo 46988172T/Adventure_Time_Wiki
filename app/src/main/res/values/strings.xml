@@ -7,13 +7,18 @@
     <string name="action_settings">Settings</string>
     <string name="characters">Characters</string>
     <string name="episodes">Episodes</string>
+    <string name="description">Description: </string>
+    <string name="airdate">Air Date: </string>
+
 
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="welcome">WELCOME TO</string>
 
-    <string name="instructions">Some instructions of use:</string>
-    <string name="instructions2">Look for all the characters in the TV series. To do this, you must use the side menu that opens when you press the button top left. In addition, you will also find details of the episodes and some videos of the series. You will need internet access on your device for new updates, while the data is downloaded and saved to view the information later without internet access.</string>
-    <string name="instructions3">We hope you find it useful! Enjoy!</string>
+
+    <string name="instructions2">Some instructions of use:
+        Look for all the characters in the TV series. To do this, you must use the side menu that opens when you press the button top left. In addition, you will also find details of the episodes and some videos of the series. You will need internet access on your device for new updates, while the data is downloaded and saved to view the information later without internet access.
+    We hope you find it useful! Enjoy! </string>
+
     <string name="boot"/>
 </resources>

@@ -17,35 +17,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/instructions"
-        android:id="@+id/instrucions"
-        android:textColor="#ffffff"
-        android:layout_marginTop="35dp"
-        android:layout_below="@+id/logomain"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/instructions2"
         android:id="@+id/instructions2"
         android:textColor="#ffffff"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/logomain"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/instructions3"
-        android:id="@+id/instructions3"
-        android:textColor="#ffffff"
-        android:layout_below="@+id/instructions2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp" />
 
     <ImageView
         android:layout_width="wrap_content"
